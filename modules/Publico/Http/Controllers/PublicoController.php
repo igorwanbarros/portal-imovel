@@ -5,14 +5,23 @@ namespace Modules\Publico\Http\Controllers;
 use Pingpong\Modules\Routing\Controller;
 use Modules\Admin\Entities\Imovel;
 
+use Illuminate\Http\Request;
+
 class PublicoController extends Controller
 {
 
-    public function index()
+    public function index(Request $search = null)
     {
-        $object     = Imovel::all();
+        $pesquisa = $search['search'];
         
-        return view('publico::index', compact('object'));
+        $object     = Imovel::where('nome', 'LIKE', '%'.$pesquisa.'%')
+                        ->orWhere('endereco', 'LIKE', '%'.$pesquisa.'%')
+                        ->orWhere('cidade', 'LIKE', '%'.$pesquisa.'%')
+                        ->orWhere('bairro', 'LIKE', '%'.$pesquisa.'%')
+                        ->orWhere('responsavel', 'LIKE', '%'.$pesquisa.'%')
+                        ->get();
+        
+        return view('publico::index', compact('object','pesquisa'));
     }
 
 }

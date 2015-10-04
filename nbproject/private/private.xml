@@ -3,14 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/var/www/html/laravel/portal-imoveis/modules/Publico/Http/Controllers/PublicoController.php</file>
+            <file>file:/var/www/html/laravel/portal-imoveis/app/Http/routes.php</file>
             <file>file:/var/www/html/laravel/portal-imoveis/modules/Admin/Http/routes.php</file>
-            <file>file:/var/www/html/laravel/portal-imoveis/modules/Admin/Resources/views/imoveis/index.blade.php</file>
-            <file>file:/var/www/html/laravel/portal-imoveis/public/css/materialize.css</file>
-            <file>file:/var/www/html/laravel/portal-imoveis/public/css/perfect-scrollbar.css</file>
-            <file>file:/var/www/html/laravel/portal-imoveis/modules/Admin/Resources/views/layouts/default.blade.php</file>
-            <file>file:/var/www/html/laravel/portal-imoveis/modules/Admin/Http/Controllers/AdminController.php</file>
-            <file>file:/var/www/html/laravel/portal-imoveis/public/css/estilo.css</file>
+            <file>file:/var/www/html/laravel/portal-imoveis/modules/Publico/Resources/views/layouts/default.blade.php</file>
+            <file>file:/var/www/html/laravel/portal-imoveis/composer.json</file>
+            <file>file:/var/www/html/laravel/portal-imoveis/modules/Publico/Http/routes.php</file>
             <file>file:/var/www/html/laravel/portal-imoveis/modules/Admin/Http/Controllers/ImoveisController.php</file>
+            <file>file:/var/www/html/laravel/portal-imoveis/modules/Publico/Resources/views/index.blade.php</file>
         </group>
     </open-files>
 </project-private>
