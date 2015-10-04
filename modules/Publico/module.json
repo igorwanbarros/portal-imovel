@@ -1,0 +1,15 @@
+{
+    "name": "Publico",
+    "alias": "publico",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\Publico\\Providers\\PublicoServiceProvider"
+    ],
+    "aliases":{},
+    "files": [
+        "start.php"
+    ]
+}
