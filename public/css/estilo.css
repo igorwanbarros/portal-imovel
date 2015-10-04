@@ -1,0 +1,33 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 26/09/2015, 15:32:39
+    Author     : igor
+*/
+
+.padding-top-1x {
+    padding-top: 1em;
+}
+.padding-top-2x {
+    padding-top: 2em;
+}
+.padding-top-3x {
+    padding-top: 3em;
+}
+.padding-bottom-1x {
+    padding-bottom: 1em;
+}
+.padding-bottom-2x {
+    padding-bottom: 2em;
+}
+.padding-bottom-3x {
+    padding-bottom: 3em;
+}
+
+/* TABLE */
+tr.clickable-row:hover{
+  cursor: pointer;
+}
