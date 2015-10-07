@@ -2,7 +2,7 @@
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Modules\Admin\Http\Controllers'], function()
 {
-	Route::get('/', 'AdminController@index');
+	Route::get('/index', 'AdminController@index');
         
         //IMOVEIS
 	Route::get('/imoveis', 'ImoveisController@index');
@@ -14,4 +14,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Modules\Admin\Http\Controller
         //IMOVEIS IMAGEM
 	Route::post('/imoveis-imagem/store', 'ImovelImagemController@store');
 	Route::get('/imoveis-imagem/{id}/destroy', 'ImovelImagemController@destroy');
+        
+        //PAGE CONFIGURATION
+	Route::get('/configuracoes/', 'PageConfigurationController@index');
+	Route::get('/configuracoes/adicionar-pagina', 'PageConfigurationController@addPage');
 });

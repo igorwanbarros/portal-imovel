@@ -66,7 +66,7 @@ class ImoveisController extends Controller
         $title  = $this->title . ' - Editar';
         $object = Imovel::with('image')->find($id);
         
-        return view('admin::imoveis.form', compact('title', 'object', 'images'));
+        return view('admin::imoveis.form', compact('title', 'object'));
     }
 
     /**
