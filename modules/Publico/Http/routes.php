@@ -2,7 +2,7 @@
 
 Route::group(
     [
-        'prefix'        => '',
+        'prefix'        => '/',
         'namespace'     => 'Modules\Publico\Http\Controllers'
     ], function() {
 	Route::get('/{search?}', 'PublicoController@index');

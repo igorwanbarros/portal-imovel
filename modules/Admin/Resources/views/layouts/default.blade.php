@@ -67,8 +67,8 @@
                             </a>
                         </li>
                         <li class="divider"></li>
-                        <li>
-                            <a href='{{URL::to('admin/imoveis')}}'>
+                        <li class="{{ Request::is('admin/configuracoes/*') || Request::is('admin/configuracoes') ? 'active' : '' }}">
+                            <a href='{{URL::to('admin/configuracoes')}}'>
                                 <i class='fa fa-gears fa-fw'></i> 
                                 <span> Personalizar Páginas</span>
                             </a>
