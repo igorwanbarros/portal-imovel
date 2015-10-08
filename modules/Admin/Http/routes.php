@@ -17,5 +17,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Modules\Admin\Http\Controller
         
         //PAGE CONFIGURATION
 	Route::get('/configuracoes/', 'PageConfigurationController@index');
-	Route::get('/configuracoes/adicionar-pagina', 'PageConfigurationController@addPage');
+	Route::get('/configuracoes/novo', 'PageConfigurationController@create');
+	Route::get('/configuracoes/{id}/editar', 'PageConfigurationController@create');
+	Route::put('/configuracoes/{id}/update', 'PageConfigurationController@store');
+	Route::get('/configuracoes/{id}/remover', 'PageConfigurationController@destroy');
+	Route::post('/configuracoes/store', 'PageConfigurationController@store');
 });
