@@ -68,10 +68,31 @@
                         </li>
                         <li class="divider"></li>
                         <li class="{{ Request::is('admin/configuracoes/*') || Request::is('admin/configuracoes') ? 'active' : '' }}">
-                            <a href='{{URL::to('admin/configuracoes')}}'>
+                            <a href='#'>
                                 <i class='fa fa-gears fa-fw'></i> 
                                 <span> Personalizar Páginas</span>
+                                <i class="fa fa-angle-left pull-right"></i>
                             </a>
+                            <ul class="treeview-menu">
+                                <li class="{{ Request::is('admin/configuracoes/*') || Request::is('admin/configuracoes') ? 'active' : '' }}">
+                                    <a href="{{URL::to('admin/configuracoes')}}">
+                                        <i class='fa fa-file-o fa-fw'></i> 
+                                        Páginas
+                                    </a>
+                                </li>
+                                <li class="{{ Request::is('admin/configuracoes/*') || Request::is('admin/configuracoes') ? 'active' : '' }}">
+                                    <a href="{{URL::to('admin/configuracoes')}}">
+                                        <i class='fa fa-file-word-o fa-fw'></i> 
+                                        Conteúdos
+                                    </a>
+                                </li>
+                                <li class="{{ Request::is('admin/configuracoes/*') || Request::is('admin/configuracoes') ? 'active' : '' }}">
+                                    <a href="{{URL::to('admin/configuracoes')}}">
+                                        <i class='fa fa-columns fa-fw'></i> 
+                                        Layouts
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                     <!--fim da sidebar-menu - lista do menu inicial-->
