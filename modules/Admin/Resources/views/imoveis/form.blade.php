@@ -15,44 +15,41 @@
     
     <div class="tab-content">
         <div class="tab-pane active" id="identificacao">
-            @if (isset($object))
-                {!! Form::open(array('url' => 'admin/imoveis/' . $object['id'] . '/update','method' => 'put')) !!}
-            @else
                 {!! Form::open(array('url' => 'admin/imoveis/store')) !!}
-            @endif
             <div class="col-lg-6 col-xs-12">
+                {!! Form::hidden('id', $object->id) !!}
                 {!! Form::label('nome', 'Nome') !!}
-                {!! Form::text('nome', isset($object['nome']) ? $object['nome'] : null, ['class' => 'form-control']) !!}
+                {!! Form::text('nome', $object->nome, ['class' => 'form-control']) !!}
             </div>
 
             <div class="col-lg-6 col-xs-12">
                 {!! Form::label('endereco', 'Endereço') !!}
-                {!! Form::text('endereco', isset($object['endereco']) ? $object['endereco'] : null, ['class' => 'form-control']) !!}
+                {!! Form::text('endereco', $object->endereco, ['class' => 'form-control']) !!}
             </div>
 
             <div class="col-lg-6 col-xs-12">
                 {!! Form::label('bairro', 'Bairro') !!}
-                {!! Form::text('bairro', isset($object['bairro']) ? $object['bairro'] : null, ['class' => 'form-control']) !!}
+                {!! Form::text('bairro', $object->bairro, ['class' => 'form-control']) !!}
             </div>
 
             <div class="col-lg-6 col-xs-12">
                 {!! Form::label('cidade', 'Cidade') !!}
-                {!! Form::text('cidade', isset($object['cidade']) ? $object['cidade'] : null, ['class' => 'form-control']) !!}
+                {!! Form::text('cidade', $object->cidade, ['class' => 'form-control']) !!}
             </div>
 
             <div class="col-lg-6 col-xs-12">
                 {!! Form::label('cep', 'Cep') !!}
-                {!! Form::text('cep', isset($object['cep']) ? $object['cep'] : null, ['class' => 'form-control']) !!}
+                {!! Form::text('cep', $object->cep, ['class' => 'form-control']) !!}
             </div>
 
             <div class="col-lg-6 col-xs-12">
                 {!! Form::label('numero', 'Numero') !!}
-                {!! Form::text('numero', isset($object['numero']) ? $object['numero'] : null, ['class' => 'form-control']) !!}
+                {!! Form::text('numero', $object->numero, ['class' => 'form-control']) !!}
             </div>
 
             <div class="col-lg-6 col-xs-12">
                 {!! Form::label('responsavel', 'Responsavel') !!}
-                {!! Form::text('responsavel', isset($object['responsavel']) ? $object['responsavel'] : null, ['class' => 'form-control']) !!}
+                {!! Form::text('responsavel', $object->responsavel, ['class' => 'form-control']) !!}
             </div>
             
             <div class="padding-top-2x col-lg-12 col-xs-12">
@@ -61,7 +58,7 @@
                 </button>
 
                 @if(isset($object))
-                <a href="{{ URL::to('admin/imoveis/' . $object['id'] . '/destroy') }}" class="btn btn-default">
+                <a href="{{ URL::to('admin/imoveis/' . $object->id . '/destroy') }}" class="btn btn-default">
                     <i class="fa fa-trash-o fa-fw"></i> Excluir
                 </a>
                 @endif
@@ -78,12 +75,12 @@
                 <div class="col-lg-6 col-xs-6">
                     {!! Form::label('image', 'Selecione uma Imagem') !!}
                     {!! Form::file('image') !!}
-                    {!! Form::hidden('imovel_id',$object['id']) !!}
+                    {!! Form::hidden('imovel_id',$object->id) !!}
                 </div>
 
                 <div class="col-lg-6 col-xs-6">
                     {!! Form::label('descricao', 'Descrição da Imagem') !!}
-                    {!! Form::text('descricao', isset($object['image']['descricao']) ? $object['image']['descricao'] : null, ['class' => 'form-control']) !!}
+                    {!! Form::text('descricao', null, ['class' => 'form-control']) !!}
                     {!! Form::hidden('imovel_id', $object['id']) !!}
                 </div>
 

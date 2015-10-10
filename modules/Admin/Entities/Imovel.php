@@ -2,10 +2,9 @@
 
 namespace Modules\Admin\Entities;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Imovel extends Model
+class Imovel extends EntityAbstract
 {
+    
     protected $fillable = [
         'nome',
         'endereco',

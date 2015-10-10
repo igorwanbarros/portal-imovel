@@ -42,6 +42,7 @@ class ImovelImagemController extends Controller
     public function destroy($id)
     {
         $imagem = ImovelImagem::find($id);
+        ImovelImagem::destroy($id);
         $imagem->update(['excluido' => 1]);
         
         return redirect()->guest('admin/imoveis/' . $imagem->imovel_id . '/editar');

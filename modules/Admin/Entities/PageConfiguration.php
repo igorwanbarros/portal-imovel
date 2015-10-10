@@ -4,6 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class PageConfiguration extends Model {
+    
     use SoftDeletes;
     
     protected $fillable = [
@@ -16,6 +17,4 @@ class PageConfiguration extends Model {
     
     protected $table = 'page_configuration';
     
-//    protected $dates = ['deleted_at'];
-
 }

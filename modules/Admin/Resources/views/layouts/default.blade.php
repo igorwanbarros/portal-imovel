@@ -13,7 +13,7 @@
         
         <title>:: Portal Imoveis ::</title>
     </head>
-    <body class="hold-transition skin-red sidebar-mini">
+    <body class="hold-transition skin-red sidebar-mini fixed">
         
         <div class="wrapper">
             <header class="main-header">
@@ -49,8 +49,8 @@
 
                     <ul class="sidebar-menu">
                         <li class="header">MENU PRINCIPAL</li>
-                        <li class="">
-                            <a href="{{URL::to('/')}}">
+                        <li class="{{ Request::is('admin/') || Request::is('admin/index') ? 'active' : '' }}">
+                            <a href="{{URL::to('admin/index')}}">
                                 <i class="fa fa-home "></i> <span>Inicio</span>
                             </a>
                         </li>

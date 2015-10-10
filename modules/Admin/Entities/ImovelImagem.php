@@ -1,8 +1,6 @@
 <?php namespace Modules\Admin\Entities;
    
-use Illuminate\Database\Eloquent\Model;
-
-class ImovelImagem extends Model {
+class ImovelImagem extends EntityAbstract {
 
     protected $fillable = [
         'url',
