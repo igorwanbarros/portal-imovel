@@ -3,22 +3,42 @@
 Route::group(['prefix' => 'admin', 'namespace' => 'Modules\Admin\Http\Controllers'], function()
 {
 	Route::get('/index', 'AdminController@index');
-        
-        //IMOVEIS
-	Route::get('/imoveis', 'ImoveisController@index');
-	Route::get('/imoveis/cadastrar', 'ImoveisController@form');
-	Route::post('/imoveis/store', 'ImoveisController@store');
-	Route::get('/imoveis/{id}/editar', 'ImoveisController@edit');
-	Route::get('/imoveis/{id}/destroy', 'ImoveisController@destroy');
+
+	//IMOVEIS
+	Route::group(['prefix' => 'imoveis'], function()
+	{
+		Route::get('/', 'ImoveisController@index');
+		Route::get('/cadastrar', 'ImoveisController@form');
+		Route::post('/store', 'ImoveisController@store');
+		Route::get('/{id}/editar', 'ImoveisController@edit');
+		Route::get('/{id}/destroy', 'ImoveisController@destroy');
+	});
+
         //IMOVEIS IMAGEM
-	Route::post('/imoveis-imagem/store', 'ImovelImagemController@store');
-	Route::get('/imoveis-imagem/{id}/destroy', 'ImovelImagemController@destroy');
-        
+	Route::group(['prefix' => 'imoveis-imagem'], function()
+	{
+		Route::post('/store', 'ImovelImagemController@store');
+		Route::get('/{id}/destroy', 'ImovelImagemController@destroy');
+	});
+
         //PAGE CONFIGURATION
-	Route::get('/configuracoes/', 'PageConfigurationController@index');
-	Route::get('/configuracoes/novo', 'PageConfigurationController@create');
-	Route::get('/configuracoes/{id}/editar', 'PageConfigurationController@create');
-	Route::put('/configuracoes/{id}/update', 'PageConfigurationController@store');
-	Route::get('/configuracoes/{id}/remover', 'PageConfigurationController@destroy');
-	Route::post('/configuracoes/store', 'PageConfigurationController@store');
+	Route::group(['prefix' => 'configuracoes'], function()
+	{
+		Route::get('/', 'PageConfigurationController@index');
+		Route::get('/novo', 'PageConfigurationController@create');
+		Route::get('/{id}/editar', 'PageConfigurationController@create');
+		Route::put('/{id}/update', 'PageConfigurationController@store');
+		Route::get('/{id}/remover', 'PageConfigurationController@destroy');
+		Route::post('/store', 'PageConfigurationController@store');
+	});
+
+	//COMPONENT
+	Route::group(['prefix' => 'configuracoes/componente'], function()
+	{
+		Route::get('/', 'ComponentController@index');
+		Route::get('/cadastrar', 'ComponentController@form');
+		Route::post('/store', 'ComponentController@store');
+		Route::get('/{id}/editar', 'ComponentController@form');
+		Route::get('/{id}/destroy', 'ComponentController@destroy');
+	});
 });

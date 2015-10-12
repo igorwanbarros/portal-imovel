@@ -4,17 +4,17 @@
         <meta charset="UTF-8">
         <meta name="author" content="Igor Wanderley">
         <meta name="description" content="">
-        
+
         <link rel="stylesheet" type="text/css" href="{{URL::to('css/bootstrap.min.css')}}">
         <link rel="stylesheet" type="text/css" href="{{URL::to('css/base.min.css')}}">
         <link rel="stylesheet" type="text/css" href="{{URL::to('css/font-awesome.min.css')}}">
         <link rel="stylesheet" type="text/css" href="{{URL::to('css/skins/_all-skins.min.css')}}">
         <link rel="stylesheet" type="text/css" href="{{URL::to('css/estilo.css')}}">
-        
+
         <title>:: Portal Imoveis ::</title>
     </head>
     <body class="hold-transition skin-red sidebar-mini fixed">
-        
+
         <div class="wrapper">
             <header class="main-header">
                 <a href="index2.html" class="logo">
@@ -56,39 +56,39 @@
                         </li>
                         <li class='{{ Request::is('admin/imoveis/*') || Request::is('admin/imoveis') ? 'active' : '' }}'>
                             <a href='{{URL::to('admin/imoveis')}}'>
-                                <i class='fa fa-building-o fa-fw'></i> 
+                                <i class='fa fa-building-o fa-fw'></i>
                                 <span> Imoveis</span>
                             </a>
                         </li>
                         <li>
                             <a href='{{URL::to('admin/imoveis')}}'>
-                                <i class='fa fa-users fa-fw'></i> 
+                                <i class='fa fa-users fa-fw'></i>
                                 <span> Usuários</span>
                             </a>
                         </li>
                         <li class="divider"></li>
                         <li class="{{ Request::is('admin/configuracoes/*') || Request::is('admin/configuracoes') ? 'active' : '' }}">
                             <a href='#'>
-                                <i class='fa fa-gears fa-fw'></i> 
-                                <span> Personalizar Páginas</span>
+                                <i class='fa fa-gears fa-fw'></i>
+                                <span> Construir Páginas</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li class="{{ Request::is('admin/configuracoes/*') || Request::is('admin/configuracoes') ? 'active' : '' }}">
+                                <li class="{{ Request::is('admin/configuracoes') ? 'active' : '' }}">
                                     <a href="{{URL::to('admin/configuracoes')}}">
-                                        <i class='fa fa-file-o fa-fw'></i> 
+                                        <i class='fa fa-file-o fa-fw'></i>
                                         Páginas
                                     </a>
                                 </li>
-                                <li class="{{ Request::is('admin/configuracoes/*') || Request::is('admin/configuracoes') ? 'active' : '' }}">
-                                    <a href="{{URL::to('admin/configuracoes')}}">
-                                        <i class='fa fa-file-word-o fa-fw'></i> 
-                                        Conteúdos
+                                <li class="{{ Request::is('admin/configuracoes/componente') ? 'active' : '' }}">
+                                    <a href="{{URL::to('admin/configuracoes/componente')}}">
+                                        <i class='fa fa-file-word-o fa-fw'></i>
+                                        Componentes
                                     </a>
                                 </li>
-                                <li class="{{ Request::is('admin/configuracoes/*') || Request::is('admin/configuracoes') ? 'active' : '' }}">
+                                <li class="{{ Request::is('admin/configuracoes') ? 'active' : '' }}">
                                     <a href="{{URL::to('admin/configuracoes')}}">
-                                        <i class='fa fa-columns fa-fw'></i> 
+                                        <i class='fa fa-columns fa-fw'></i>
                                         Layouts
                                     </a>
                                 </li>
@@ -105,7 +105,7 @@
             <div class="content-wrapper">
                 <section class="content">
                     @yield('content')
-                    
+
                 </section>
                 <!--fim do content-->
             </div>
@@ -121,12 +121,12 @@
 
         </div>
         <!-- fim do wrapper-->
-        
+
         <script src="{{URL::to('js/jQuery-2.1.4.min.js')}}"></script>
         <script src="{{URL::to('js/jquery-ui.min.js')}}"></script>
         <script src="{{URL::to('js/bootstrap.min.js')}}"></script>
         <script src="{{URL::to('js/app.min.js')}}"></script>
-        
+
         <script type='text/javascript'>
             $('.clickable-row').on('click', function() {
                 window.document.location = $(this).data('url');
