@@ -33,19 +33,18 @@ class ImovelImagemController extends Controller
 
             ImovelImagem::create($image);
 
-            return redirect()->guest('admin/imoveis/' . $image['imovel_id'] . '/editar');
+            return redirect()->guest('admin/imoveis/' . $image['imovel_id'] . '/cadastrar');
         }
         
-        return redirect()->guest('admin/imoveis/' . $image['imovel_id'] . '/editar');
+        return redirect()->guest('admin/imoveis/' . $image['imovel_id'] . '/cadastrar');
     }
     
     public function destroy($id)
     {
         $imagem = ImovelImagem::find($id);
         ImovelImagem::destroy($id);
-        $imagem->update(['excluido' => 1]);
         
-        return redirect()->guest('admin/imoveis/' . $imagem->imovel_id . '/editar');
+        return redirect()->guest('admin/imoveis/' . $imagem->imovel_id . '/cadastrar');
     }
 
 }

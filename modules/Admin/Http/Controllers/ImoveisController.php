@@ -15,19 +15,18 @@ class ImoveisController extends Controller
         $this->title = 'Imoveis';
     }
     
-    public function index()
+    public function index(Imovel $imovel)
     {
-        $title = $this->title;
+        $title      = $this->title;
+        $imoveis    = $imovel->paginate(10)->setPath('imoveis');
         
-        $objeto = Imovel::all();
-        
-        return view('admin::imoveis.index', compact('title','objeto'));
+        return view('admin::imoveis.index', compact('title','imoveis'));
     }
 
-    public function form(Imovel $imovel)
+    public function form(Imovel $imovel, $id = null)
     {
-        $title = $this->title . ' - Cadastrar';
-        $object = $imovel;
+        $title = $this->title . ($id > 0 ? ' - Editar' : ' - Cadastrar');
+        $object = $imovel->findOrNew($id);
         
         return view('admin::imoveis.form', compact('object', 'title'));
     }
@@ -37,14 +36,6 @@ class ImoveisController extends Controller
         Imovel::saveOrUpdate($request->all());
         
         return redirect()->guest('admin/imoveis');
-    }
-
-    public function edit($id, Imovel $imovel)
-    {
-        $title  = $this->title . ' - Editar';
-        $object = $imovel->find($id);
-        
-        return view('admin::imoveis.form', compact('title', 'object'));
     }
 
     public function destroy($id)

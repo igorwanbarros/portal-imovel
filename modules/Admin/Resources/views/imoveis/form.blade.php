@@ -53,13 +53,17 @@
             </div>
             
             <div class="padding-top-2x col-lg-12 col-xs-12">
-                <button class="btn btn-default" type="submit" name="action">
+                <button class="btn bg-green-gradient" type="submit" name="action">
                     <i class="fa fa-save fa-fw"></i> Salvar
                 </button>
 
+                <a href="{{ URL::to('admin/imoveis/cadastrar') }}" title="Cadastrar" class="btn bg-blue-gradient">
+                    <i class="fa fa-file-o fa-fw"></i> Cadastrar
+                </a>
+                
                 @if(isset($object))
-                <a href="{{ URL::to('admin/imoveis/' . $object->id . '/destroy') }}" class="btn btn-default">
-                    <i class="fa fa-trash-o fa-fw"></i> Excluir
+                <a href="{{ URL::to('admin/imoveis/' . $object->id . '/destroy') }}" class="btn bg-red-gradient">
+                    <i class="fa fa-trash-o fa-fw"></i> Remover
                 </a>
                 @endif
             </div>
@@ -85,7 +89,7 @@
                 </div>
 
                 <div class="col-lg-12 col-xs-12 padding-top-2x">
-                    <button type="submit" class="btn btn-default">
+                    <button type="submit" class="btn bg-red-gradient">
                         <i class="fa fa-save"></i> Adicionar
                     </button>
                 </div>
@@ -109,7 +113,7 @@
                             </div>
                             <div class="box-footer text-right">
                                 <a href="{{ URL::to('admin/imoveis-imagem/' . $imagem->id . '/destroy') }}"
-                                   class="btn bg-red btn-sm">
+                                   class="btn bg-yellow-gradient btn-sm">
                                     <i class="fa fa-trash-o fa-fw"></i> Remover
                                 </a>
                             </div>
@@ -126,11 +130,9 @@
     <!--fim do tab-content-->
 </div>
 <!--fim da div nav-tabs-custom-->
-@if (isset($message))
-{{ $message}}
-@endif
+
 <div class="col-lg-12 col-xs-12 padding-top-2x text-right">
-    <a href="{{ URL::to('admin/imoveis') }}" title="Voltar" class="btn btn-sm btn-warning">
+    <a href="{{ URL::to('admin/imoveis') }}" title="Voltar" class="btn bg-blue-gradient">
         <i class="fa fa-arrow-circle-left fa-fw"></i> Voltar
     </a>
 </div>

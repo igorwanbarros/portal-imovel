@@ -6,7 +6,7 @@
 
 <div class="table-responsive">
     <div class="col-lg-12 col-xs-12 padding-bottom-2x text-right">
-        <a href="{{ URL::to('admin/imoveis/cadastrar') }}" title="Cadastrar" class="btn btn-sm btn-warning">
+        <a href="{{ URL::to('admin/imoveis/cadastrar') }}" title="Cadastrar" class="btn btn-sm bg-blue-gradient">
             <i class="fa fa-file-o fa-fw"></i> Cadastrar
         </a>
     </div>
@@ -25,7 +25,7 @@
         </thead>
 
         <tbody>
-            @foreach($objeto as $imovel)
+            @foreach($imoveis as $imovel)
             <tr class="text-center clickable-row" data-url='{{ URL::to('admin/imoveis/' . $imovel->id . '/editar') }}'>
                 <td>{{ $imovel->id }}</td>
                 <td>{{ $imovel->nome }}</td>
@@ -35,10 +35,10 @@
                 <td>{{ $imovel->cep }}</td>
                 <td>{{ $imovel->cidade }}</td>
                 <td>
-                    <a href="{{ URL::to('admin/imoveis/' . $imovel->id . '/editar') }}" title="Editar" class="btn btn-xs btn-success">
+                    <a href="{{ URL::to('admin/imoveis/' . $imovel->id . '/editar') }}" title="Editar" class="btn btn-xs bg-green-gradient">
                         <i class="fa fa-edit fa-fw"></i>
                     </a>
-                    <a href="{{ URL::to('admin/imoveis/' . $imovel->id . '/destroy') }}" title="Remover" class="btn btn-xs btn-warning">
+                    <a href="{{ URL::to('admin/imoveis/' . $imovel->id . '/destroy') }}" title="Remover" class="btn btn-xs bg-red-gradient">
                         <i class="fa fa-trash-o fa-fw"></i>
                     </a>
                 </td>
@@ -46,6 +46,8 @@
             @endforeach
         </tbody>
     </table>
+    
+    {!! $imoveis->render() !!}
 </div>
 
 @stop

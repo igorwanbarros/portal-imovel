@@ -76,13 +76,13 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li class="{{ Request::is('admin/configuracoes') ? 'active' : '' }}">
-                                    <a href="{{URL::to('admin/configuracoes')}}">
+                                <li class="{{ Request::is('admin/configuracoes/paginas') ? 'active' : '' }}">
+                                    <a href="{{URL::to('admin/configuracoes/paginas')}}">
                                         <i class='fa fa-file-o fa-fw'></i>
                                         Páginas
                                     </a>
                                 </li>
-                                <li class="{{ Request::is('admin/configuracoes/componente') ? 'active' : '' }}">
+<!--                                <li class="{{ Request::is('admin/configuracoes/componente') ? 'active' : '' }}">
                                     <a href="{{URL::to('admin/configuracoes/componente')}}">
                                         <i class='fa fa-file-word-o fa-fw'></i>
                                         Componentes
@@ -93,7 +93,7 @@
                                         <i class='fa fa-columns fa-fw'></i>
                                         Layouts
                                     </a>
-                                </li>
+                                </li>-->
                             </ul>
                         </li>
                     </ul>
