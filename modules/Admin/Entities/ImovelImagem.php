@@ -10,6 +10,8 @@ class ImovelImagem extends EntityAbstract {
         'excluido',
     ];
     
+    protected $table = 'imovel_imagens';
+    
     public function imovel()
     {
         return $this->belongsTo('Modules\Admin\Entities\Imovel');

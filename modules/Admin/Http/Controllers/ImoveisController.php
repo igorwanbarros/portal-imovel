@@ -19,7 +19,7 @@ class ImoveisController extends Controller
     {
         $title = $this->title;
         
-        $objeto = Imovel::with('image')->get();
+        $objeto = Imovel::all();
         
         return view('admin::imoveis.index', compact('title','objeto'));
     }

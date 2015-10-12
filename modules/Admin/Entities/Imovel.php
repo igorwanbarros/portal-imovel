@@ -16,10 +16,12 @@ class Imovel extends EntityAbstract
         'excluido',
     ];
     
+    protected $table = 'imoveis';
+    
 
     public function image()
     {
-        return $this->hasMany('Modules\Admin\Entities\ImovelImagem')->where('excluido', '=', 0);
+        return $this->hasMany('Modules\Admin\Entities\ImovelImagem');
     }
     
     public function getCreatedAtAttribute($value)
