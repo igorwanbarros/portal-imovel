@@ -5,7 +5,6 @@ namespace Modules\Admin\Http\Controllers;
 use Illuminate\Http\Request;
 use Pingpong\Modules\Routing\Controller;
 use Modules\Admin\Entities\Component;
-use Modules\Admin\Entities\PageConfiguration;
 
 class ComponentController extends Controller
 {

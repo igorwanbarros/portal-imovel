@@ -8,9 +8,9 @@ class Component extends EntityAbstract {
       'class_name'
     ];
     
-    public function page()
+    public function information()
     {
-        return $this->hasMany('Modules\Admin\Entities\PageConfiguration');
+        return $this->hasOne('\Modules\Admin\Entities\InformationComponent');
     }
 
 }

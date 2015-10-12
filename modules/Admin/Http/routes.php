@@ -41,4 +41,14 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Modules\Admin\Http\Controller
 		Route::get('/{id}/editar', 'ComponentController@form');
 		Route::get('/{id}/destroy', 'ComponentController@destroy');
 	});
+        
+	//INFOMATION COMPONENT
+	Route::group(['prefix' => 'configuracoes/componente/info'], function()
+	{
+		Route::get('/', 'InformationComponentController@index');
+		Route::get('/cadastrar', 'InformationComponentController@form');
+		Route::post('/store', 'InformationComponentController@store');
+		Route::get('/{id}/editar', 'InformationComponentController@form');
+		Route::get('/{id}/destroy', 'InformationComponentController@destroy');
+	});
 });
