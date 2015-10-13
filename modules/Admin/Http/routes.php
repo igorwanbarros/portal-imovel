@@ -24,6 +24,16 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Modules\Admin\Http\Controller
 	//CONFIGURACOES
 	Route::group(['prefix' => 'configuracoes'], function()
 	{
+            //COMPONENTES
+            Route::group(['prefix' => 'componentes'], function()
+            {
+                Route::get('/', 'ComponentController@index');
+                Route::get('/cadastrar', 'ComponentController@form');
+                Route::post('/store', 'ComponentController@store');
+                Route::get('/{id}/editar', 'ComponentController@form');
+                Route::get('/{id}/destroy', 'ComponentController@destroy');
+            });
+            
             //PAGINAS
             Route::group(['prefix' => 'paginas'], function()
             {
@@ -32,6 +42,13 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Modules\Admin\Http\Controller
                 Route::post('/store', 'PagesController@store');
                 Route::get('/{id}/editar', 'PagesController@form');
                 Route::get('/{id}/destroy', 'PagesController@destroy');
+            });
+            
+            //PAGINAS COMPONENTES
+            Route::group(['prefix' => 'paginas-componentes'], function()
+            {
+                Route::post('/store', 'PagesComponentsController@store');
+                Route::get('/{id}/destroy', 'PagesComponentsController@destroy');
             });
 	});
 });

@@ -4,6 +4,8 @@ namespace Modules\Admin\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Modules\Admin\Entities\Pages;
+use Modules\Admin\Entities\Component;
+use Modules\Admin\Entities\PagesComponent;
 use App\Http\Controllers\Controller;
 
 class PagesController extends Controller
@@ -25,11 +27,15 @@ class PagesController extends Controller
 
     public function form(Pages $page, $id = null)
     {
-        $title      = $this->title . ($id > 0 ? ' - Editar' : ' - Cadastrar');
-        $paginas    = $page->findOrNew($id);
-//        $componentes= 
+        $title       = $this->title . ($id > 0 ? ' - Editar' : ' - Cadastrar');
+        $paginas     = $page->findOrNew($id);
+        $componentes = Component::lists('name','id');
         
-        return view('admin::pages.form', compact('paginas', 'title'));
+        return view('admin::pages.form', compact(
+                    'paginas', 
+                    'title',
+                    'componentes'
+                ));
     }
 
     public function store(Request $request)
