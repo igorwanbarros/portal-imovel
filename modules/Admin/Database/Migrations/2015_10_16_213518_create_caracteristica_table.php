@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateImovelImagensTable extends Migration {
+class CreateCaracteristicaTable extends Migration {
 
     /**
      * Run the migrations.
@@ -12,15 +12,10 @@ class CreateImovelImagensTable extends Migration {
      */
     public function up()
     {
-        Schema::create('imovel_imagens', function(Blueprint $table)
+        Schema::create('caracteristica', function(Blueprint $table)
         {
             $table->increments('id');
-            $table->string('name');
-            $table->string('url');
-            $table->string('extensao');
-            $table->string('descricao');
-            $table->integer('imovel_id')->unsigned();
-            $table->foreign('imovel_id')->references('id')->on('imovel');
+            $table->string('nome');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -33,7 +28,7 @@ class CreateImovelImagensTable extends Migration {
      */
     public function down()
     {
-        Schema::drop('imovel_imagens');
+        Schema::drop('caracteristica');
     }
 
 }
