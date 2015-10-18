@@ -7,18 +7,20 @@ use Illuminate\Http\Request;
 
 use Modules\Admin\Entities\ImovelImagem;
 use Illuminate\Support\Facades\Input;
+use Modules\Admin\Entities\Imovel;
 
 
 class ImovelImagemController extends Controller
 {
 
-    public function index()
+    public function index(Imovel $imovel, $imovelId)
     {
-        return view('admin::index');
+        $object = $imovel->find($imovelId)->image;
+        return view('admin::imoveis-imagem.index', compact('object','imovelId'));
     }
-    
-    
-    public function store(Request $request) 
+
+
+    public function store(Request $request)
     {
         $image = $request->all();
         if (isset($image['image'])) {
@@ -33,18 +35,18 @@ class ImovelImagemController extends Controller
 
             ImovelImagem::create($image);
 
-            return redirect()->guest('admin/imoveis/' . $image['imovel_id'] . '/cadastrar');
+            $imovelId 	= $image['imovel_id'];
+            $object 	= Imovel::find($imovelId)->image;
+
+            return redirect()->guest('admin/imoveis/' . $image['imovel_id'] . '/editar');
         }
-        
-        return redirect()->guest('admin/imoveis/' . $image['imovel_id'] . '/cadastrar');
+
+        return redirect()->guest('admin/imoveis-imagem/index/' . $image['imovel_id']);
     }
-    
+
     public function destroy($id)
     {
-        $imagem = ImovelImagem::find($id);
-        ImovelImagem::destroy($id);
-        
-        return redirect()->guest('admin/imoveis/' . $imagem->imovel_id . '/cadastrar');
+        return ['status' => ImovelImagem::destroy($id)];
     }
 
 }

@@ -14,11 +14,20 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Modules\Admin\Http\Controller
             Route::get('/{id}/destroy', 'ImoveisController@destroy');
 	});
 
-        //IMOVEIS IMAGEM
+	//IMOVEIS IMAGEM
 	Route::group(['prefix' => 'imoveis-imagem'], function()
 	{
+            Route::get('/index/{imovelId}', 'ImovelImagemController@index');
             Route::post('/store', 'ImovelImagemController@store');
             Route::get('/{id}/destroy', 'ImovelImagemController@destroy');
+	});
+
+	//IMOVEIS CARACTERISTICA
+	Route::group(['prefix' => 'imoveis-caracteristicas'], function()
+	{
+            Route::get('/index/{imovelId}', 'ImovelCaracteristicasController@index');
+            Route::post('/store', 'ImovelCaracteristicasController@store');
+            Route::get('/{id}/destroy', 'ImovelCaracteristicasController@destroy');
 	});
 
 	//CONFIGURACOES
@@ -33,7 +42,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Modules\Admin\Http\Controller
                 Route::get('/{id}/editar', 'ComponentController@form');
                 Route::get('/{id}/destroy', 'ComponentController@destroy');
             });
-            
+
             //PAGINAS
             Route::group(['prefix' => 'paginas'], function()
             {
@@ -43,7 +52,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Modules\Admin\Http\Controller
                 Route::get('/{id}/editar', 'PagesController@form');
                 Route::get('/{id}/destroy', 'PagesController@destroy');
             });
-            
+
             //PAGINAS COMPONENTES
             Route::group(['prefix' => 'paginas-componentes'], function()
             {
