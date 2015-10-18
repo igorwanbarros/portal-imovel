@@ -10,8 +10,15 @@
         <link rel="stylesheet" type="text/css" href="{{URL::to('css/font-awesome.min.css')}}">
         <link rel="stylesheet" type="text/css" href="{{URL::to('css/skins/_all-skins.min.css')}}">
         <link rel="stylesheet" type="text/css" href="{{URL::to('css/estilo.css')}}">
-        
+
         <!--<link rel="stylesheet" type="text/css" href="{{URL::to('plugincss/estilo.css')}}">-->
+        <script src="{{URL::to('js/jQuery-2.1.4.min.js')}}"></script>
+        <script src="{{URL::to('js/jquery-ui.min.js')}}"></script>
+        <script src="{{URL::to('js/bootstrap.min.js')}}"></script>
+        <script src="{{URL::to('js/app.min.js')}}"></script>
+
+        <script src="{{URL::to('plugins/ckeditor/ckeditor.js')}}"></script>
+
 
         <title>:: Portal Imoveis ::</title>
     </head>
@@ -123,19 +130,11 @@
 
         </div>
         <!-- fim do wrapper-->
-
-        <script src="{{URL::to('js/jQuery-2.1.4.min.js')}}"></script>
-        <script src="{{URL::to('js/jquery-ui.min.js')}}"></script>
-        <script src="{{URL::to('js/bootstrap.min.js')}}"></script>
-        <script src="{{URL::to('js/app.min.js')}}"></script>
-        
-        <script src="{{URL::to('plugins/ckeditor/ckeditor.js')}}"></script>
-
         <script type='text/javascript'>
             $('.clickable-row').on('click', function() {
                 window.document.location = $(this).data('url');
             });
-            
+
             CKEDITOR.replace('.ckeditor');
         </script>
     </body>
