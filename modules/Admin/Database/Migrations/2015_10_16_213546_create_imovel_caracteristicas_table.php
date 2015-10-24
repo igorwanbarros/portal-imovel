@@ -16,10 +16,12 @@ class CreateImovelCaracteristicasTable extends Migration {
         {
             $table->increments('id');
             $table->integer('imovel_id')->unsigned();
+			$table->index('imovel_id');
             $table->foreign('imovel_id')
                   ->references('id')
                   ->on('imovel');
             $table->integer('caracteristica_id')->unsigned();
+			$table->index('caracteristica_id');
             $table->foreign('caracteristica_id')
                   ->references('id')
                   ->on('caracteristica');

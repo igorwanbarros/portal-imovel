@@ -37,6 +37,31 @@
                 {!! Form::text('nome', $object->nome, ['class' => 'form-control']) !!}
             </div>
 
+			<div class="col-lg-6 col-xs-12">
+                {!! Form::label('data_cadastro', 'Data do Cadastro') !!}
+                {!! Form::text('data_cadastro', $object->data_cadastro, ['class' => 'form-control']) !!}
+            </div>
+
+			<div class="col-lg-6 col-xs-12">
+                {!! Form::label('uf', 'UF') !!}
+                {!! Form::text('uf', $object->uf, ['class' => 'form-control']) !!}
+            </div>
+
+			<div class="col-lg-6 col-xs-12">
+                {!! Form::label('quartos', 'Quartos') !!}
+                {!! Form::text('quartos', $object->quartos, ['class' => 'form-control']) !!}
+            </div>
+
+			<div class="col-lg-6 col-xs-12">
+                {!! Form::label('vagas', 'Vagas') !!}
+                {!! Form::text('vagas', $object->vagas, ['class' => 'form-control']) !!}
+            </div>
+
+			<div class="col-lg-6 col-xs-12">
+                {!! Form::label('negociacao', 'Negociacao') !!}
+                {!! Form::select('negociacao', ['ambos' => 'Venda/Locação', 'venda' => 'Venda','locacao' => 'Locação'],$object->negociacao, ['class' => 'form-control']) !!}
+            </div>
+
             <div class="col-lg-6 col-xs-12">
                 {!! Form::label('endereco', 'Endereço') !!}
                 {!! Form::text('endereco', $object->endereco, ['class' => 'form-control']) !!}
@@ -67,17 +92,32 @@
                 {!! Form::text('responsavel', $object->responsavel, ['class' => 'form-control']) !!}
             </div>
 
+			<div class="col-lg-6 col-xs-12">
+                {!! Form::label('observacao', 'Observação') !!}
+                {!! Form::text('observacao', $object->observacao, ['class' => 'form-control']) !!}
+            </div>
+
+			<div class="col-lg-6 col-xs-12">
+                {!! Form::label('publicado', 'Publicado') !!}
+                {!! Form::select('publicado', ['sim' => 'Sim', 'nao' => 'Não'], $object->publicado, ['class' => 'form-control']) !!}
+            </div>
+
+			<div class="col-lg-6 col-xs-12">
+                {!! Form::label('valor', 'Valor') !!}
+                {!! Form::text('valor', $object->valor, ['class' => 'form-control']) !!}
+            </div>
+
             <div class="padding-top-2x col-lg-12 col-xs-12">
-                <button class="btn bg-green-gradient" type="submit" name="action">
+                <button class="btn bg-red" type="submit" name="action">
                     <i class="fa fa-save fa-fw"></i> Salvar
                 </button>
 
-                <a href="{{ URL::to('admin/imoveis/cadastrar') }}" title="Cadastrar" class="btn bg-blue-gradient">
+                <a href="{{ URL::to('admin/imoveis/cadastrar') }}" title="Cadastrar" class="btn btn-default">
                     <i class="fa fa-file-o fa-fw"></i> Cadastrar
                 </a>
 
                 @if(isset($object))
-                <a href="{{ URL::to('admin/imoveis/' . $object->id . '/destroy') }}" class="btn bg-red-gradient">
+                <a href="{{ URL::to('admin/imoveis/' . $object->id . '/destroy') }}" class="btn btn-default">
                     <i class="fa fa-trash-o fa-fw"></i> Remover
                 </a>
                 @endif
@@ -102,7 +142,7 @@
 <!--fim da div nav-tabs-custom-->
 
 <div class="col-lg-12 col-xs-12 padding-top-2x text-right">
-    <a href="{{ URL::to('admin/imoveis') }}" title="Voltar" class="btn bg-blue-gradient">
+    <a href="{{ URL::to('admin/imoveis') }}" title="Voltar" class="btn bg-red">
         <i class="fa fa-arrow-circle-left fa-fw"></i> Voltar
     </a>
 </div>
@@ -112,7 +152,7 @@
         event.preventDefault();
         var action = $(this).data('action'),
             tabId  = $(this).attr('href');
-		
+
         $.get(action, function(response) {
             $(tabId).html(response);
         });

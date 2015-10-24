@@ -114,7 +114,10 @@
             <div class="content-wrapper">
                 <section class="content">
                     @yield('content')
+					<div class="modal fade" tabindex="-1"
+						 role="dialog" id="modal-ajax">
 
+					</div>
                 </section>
                 <!--fim do content-->
             </div>
@@ -134,6 +137,19 @@
             $('.clickable-row').on('click', function() {
                 window.document.location = $(this).data('url');
             });
+
+			$('.remover').on('click', function(event) {
+				event.preventDefault();
+
+				var $a 		= $(this),
+					action = $a.attr('href');
+
+				$.get(action, function(response) {
+					if (response.status){
+						$a.parents('tr').remove();
+					}
+				});
+			});
 
             CKEDITOR.replace('.ckeditor');
         </script>

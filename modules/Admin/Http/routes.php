@@ -30,6 +30,15 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Modules\Admin\Http\Controller
             Route::get('/{id}/destroy', 'ImovelCaracteristicasController@destroy');
 	});
 
+	//CARACTERISTICA
+	Route::group(['prefix' => 'caracteristicas'], function()
+	{
+            Route::get('/index', 'CaracteristicasController@index');
+            Route::get('/form/{id?}', 'CaracteristicasController@form');
+            Route::post('/store', 'CaracteristicasController@store');
+            Route::get('/{id}/destroy', 'CaracteristicasController@destroy');
+	});
+
 	//CONFIGURACOES
 	Route::group(['prefix' => 'configuracoes'], function()
 	{

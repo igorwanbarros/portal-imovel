@@ -1,8 +1,9 @@
 <?php namespace Modules\Admin\Entities;
 
 use Illuminate\Database\Eloquent\Model;
+use Modules\Admin\Entities\EntityAbstract;
 
-class Caracteristica extends Model {
+class Caracteristica extends EntityAbstract {
 
     protected $fillable = [
         'nome'
