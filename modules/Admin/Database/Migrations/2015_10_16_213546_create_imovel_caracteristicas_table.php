@@ -12,7 +12,7 @@ class CreateImovelCaracteristicasTable extends Migration {
      */
     public function up()
     {
-        Schema::create('imovel_caracteristicas', function(Blueprint $table)
+        Schema::create('imovel_caracteristica', function(Blueprint $table)
         {
             $table->increments('id');
             $table->integer('imovel_id')->unsigned();
@@ -37,7 +37,7 @@ class CreateImovelCaracteristicasTable extends Migration {
      */
     public function down()
     {
-        Schema::drop('imovel_caracteristicas');
+        Schema::drop('imovel_caracteristica');
     }
 
 }
