@@ -1,7 +1,10 @@
 <?php
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Modules\Admin\Http\Controllers'], function()
-{
+Route::group([
+        'prefix'        => 'admin', 
+        'middleware'    => 'auth',
+        'namespace'     => 'Modules\Admin\Http\Controllers'
+    ], function() {
 	Route::get('/index', 'AdminController@index');
 
 	//IMOVEIS

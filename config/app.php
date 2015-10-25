@@ -65,7 +65,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'pt-BR',
 
     /*
     |--------------------------------------------------------------------------
@@ -148,6 +148,7 @@ return [
         //Terceiros
         Pingpong\Modules\ModulesServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        Bestmomo\Scafold\ScafoldServiceProvider::class,
     ],
 
     /*
