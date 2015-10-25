@@ -42,6 +42,16 @@ Route::group([
             Route::get('/{id}/destroy', 'CaracteristicasController@destroy');
 	});
 
+	//USUARIOS
+	Route::group(['prefix' => 'usuarios'], function()
+	{
+            Route::get('/index', 'UsersController@index');
+            Route::get('/cadastrar', 'UsersController@form');
+            Route::post('/store', 'UsersController@store');
+            Route::get('/{id}/editar', 'UsersController@form');
+            Route::get('/{id}/destroy', 'UsersController@destroy');
+	});
+
 	//CONFIGURACOES
 	Route::group(['prefix' => 'configuracoes'], function()
 	{

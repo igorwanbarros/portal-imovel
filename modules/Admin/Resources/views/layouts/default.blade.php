@@ -40,14 +40,12 @@
                     
                     <div class="navbar-custom-menu">
                         <ul class="nav navbar-nav">
-                            <li class="dropdown user user-menu">
-                                <a href="#" class="dropdown-toggle" 
-                                    data-toggle="dropdown" aria-expanded="false">
-                                    <span class="hidden-xs">Igor Wanderley</span>
+                            <li class="user user-menu">
+                                <a href="{{ URL::to('auth/logout/') }}">
+                                    <i class="fa fa-sign-out fa-fw"></i>Sair
                                 </a>
                             </li>
                         </ul>
-                        <a href="{{ URL::to('auth/logout/') }}">Sair</a>
                     </div>
                     <!--fim do custom-nav-bar-->
                 </nav>
@@ -83,8 +81,8 @@
                                 <span> Imoveis</span>
                             </a>
                         </li>
-                        <li>
-                            <a href='{{URL::to('admin/imoveis')}}'>
+                        <li class="{{ Request::is('admin/usuarios/*') || Request::is('admin/usuarios') ? 'active' : '' }}">
+                            <a href='{{ URL::to('admin/usuarios/index') }}'>
                                 <i class='fa fa-users fa-fw'></i>
                                 <span> Usuários</span>
                             </a>
