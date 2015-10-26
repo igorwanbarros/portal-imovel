@@ -26,7 +26,7 @@
 
         <div class="wrapper">
             <header class="main-header">
-                <a href="index2.html" class="logo">
+                <a href="{{ URL::to('/') }}" class="logo">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
                     <span class="logo-mini" title="Doce Doce">P <b>Imv</b></span>
                     <!-- logo for regular state and mobile devices -->
@@ -82,12 +82,12 @@
                             </a>
                         </li>
                         <li class="{{ Request::is('admin/usuarios/*') || Request::is('admin/usuarios') ? 'active' : '' }}">
-                            <a href='{{ URL::to('admin/usuarios/index') }}'>
+                            <a href='{{ URL::to('admin/usuarios') }}'>
                                 <i class='fa fa-users fa-fw'></i>
                                 <span> Usuários</span>
                             </a>
                         </li>
-                        <li class="divider"></li>
+<!--                        <li class="divider"></li>
                         <li class="{{ Request::is('admin/configuracoes/*') || Request::is('admin/configuracoes') ? 'active' : '' }}">
                             <a href='#'>
                                 <i class='fa fa-gears fa-fw'></i>
@@ -101,7 +101,7 @@
                                         Páginas
                                     </a>
                                 </li>
-<!--                                <li class="{{ Request::is('admin/configuracoes/componente') ? 'active' : '' }}">
+                                <li class="{{ Request::is('admin/configuracoes/componente') ? 'active' : '' }}">
                                     <a href="{{URL::to('admin/configuracoes/componente')}}">
                                         <i class='fa fa-file-word-o fa-fw'></i>
                                         Componentes

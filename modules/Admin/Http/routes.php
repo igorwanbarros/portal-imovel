@@ -41,11 +41,22 @@ Route::group([
             Route::post('/store', 'CaracteristicasController@store');
             Route::get('/{id}/destroy', 'CaracteristicasController@destroy');
 	});
+        
+	//WEB SERVICE
+	Route::group(['prefix' => 'web-service'], function()
+	{
+            Route::get('/', 'WebServiceController@index');
+//            Route::get('/cadastrar', 'UsersController@form');
+//            Route::post('/store', 'UsersController@store');
+//            Route::get('/{id}/editar', 'UsersController@form');
+//            Route::get('/{id}/destroy', 'UsersController@destroy');
+	});
+        
 
 	//USUARIOS
 	Route::group(['prefix' => 'usuarios'], function()
 	{
-            Route::get('/index', 'UsersController@index');
+            Route::get('/', 'UsersController@index');
             Route::get('/cadastrar', 'UsersController@form');
             Route::post('/store', 'UsersController@store');
             Route::get('/{id}/editar', 'UsersController@form');
