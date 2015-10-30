@@ -96,7 +96,7 @@ class PullWebServiceCommand extends Command implements SelfHandling, ShouldQueue
         foreach ($imagem as $f) {
             $foto               = new ImovelImagem();
             $foto->name         = $f->descricao;
-            $foto->url          = $f->arquivo;
+            $foto->url          = env('WEBSERVICE_PATH_IMG','') . $f->arquivo;
             $foto->extensao     = '';
             $foto->descricao    = $f->descricao;
             $foto->imovel_id    = $imovelId;

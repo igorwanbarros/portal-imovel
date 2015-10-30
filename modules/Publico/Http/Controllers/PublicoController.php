@@ -19,7 +19,7 @@ class PublicoController extends Controller
                         ->orWhere('cidade', 'LIKE', '%'.$pesquisa.'%')
                         ->orWhere('bairro', 'LIKE', '%'.$pesquisa.'%')
                         ->orWhere('responsavel', 'LIKE', '%'.$pesquisa.'%')
-                        ->get();
+                        ->paginate(10)->setPath('imoveis');
         
         return view('publico::index', compact('object','pesquisa'));
     }

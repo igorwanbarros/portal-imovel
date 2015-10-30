@@ -33,7 +33,7 @@
                     <img class="img-rounded img-responsive"
                          alt="{{ $imagem->descricao }}"
                          style="height: 100px;margin:0 auto;"
-                         src="{{ URL::to($imagem->url . $imagem->name) }}"/>
+                         src="{{ URL::to($imagem->url) }}"/>
                 </div>
                 <div class="box-footer text-right">
                     <a href="{{ URL::to('admin/imoveis-imagem/' . $imagem->id . '/destroy') }}"
