@@ -23,13 +23,19 @@
                     </div>
                 </div>
                 <div class="box-body">
-                @foreach($imovel->image as $image)
-                    <div class="col-lg-6 col-xs-12">
-                        <img src="{{ URL::to($image->url) }}" 
-                             alt="{{ $image->descricao }}" 
-                             style="height: 80px;"/>
+                    @if(isset($imovel->image[0]))
+                    <div class="container-slides">
+                        <div class="slides">
+                        @foreach($imovel->image as $image)
+                            <div class="col-lg-6 col-xs-12">
+                                <img src="{{ URL::to($image->url) }}" 
+                                     alt="{{ $image->descricao }}" 
+                                     style="width: 100%;" />
+                            </div>
+                        @endforeach
+                        </div>
                     </div>
-                @endforeach
+                    @endif
                     <div class="clearfix"></div>
                     <table class="table table-borderless table-striped table-hover">
                         <thead>
