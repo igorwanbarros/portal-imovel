@@ -5,7 +5,7 @@ Route::group(
         'prefix'        => '/',
         'namespace'     => 'Modules\Publico\Http\Controllers'
     ], function() {
-	Route::get('/{search?}', 'PublicoController@index');
-	Route::get('/imoveis/{search?}', 'PublicoController@index');
+	Route::get('/{imoveis?}', 'PublicoController@index');
+	Route::post('/pesquisar', 'PublicoController@index');
     }
 );

@@ -10,18 +10,50 @@ use Illuminate\Http\Request;
 class PublicoController extends Controller
 {
 
-    public function index(Request $search = null)
+    public function index(Request $request)
     {
-        $pesquisa = $search['search'];
+        $pesquisa   = $this->_populateImovelPesquisa($request);
         
-        $object     = Imovel::where('nome', 'LIKE', '%'.$pesquisa.'%')
-                        ->orWhere('endereco', 'LIKE', '%'.$pesquisa.'%')
-                        ->orWhere('cidade', 'LIKE', '%'.$pesquisa.'%')
-                        ->orWhere('bairro', 'LIKE', '%'.$pesquisa.'%')
-                        ->orWhere('responsavel', 'LIKE', '%'.$pesquisa.'%')
-                        ->paginate(10)->setPath('imoveis');
+        $object     = $this->_whereImovel($pesquisa, $request)
+                           ->paginate(10)
+                           ->setPath('imoveis');
+        
+//        $auth = \Illuminate\Support\Facades\Auth::check();
+//        dd($auth);
         
         return view('publico::index', compact('object','pesquisa'));
+    }
+    
+    protected function _populateImovelPesquisa($request)
+    {
+        $pesquisa = new Imovel();
+        
+        $pesquisa->setAttribute('nome', $request['nome']);
+        $pesquisa->setAttribute('endereco', $request['endereco']);
+        $pesquisa->setAttribute('valor', $request['valor']);
+        $pesquisa->setAttribute('quartos', $request['quartos']);
+        $pesquisa->setAttribute('vagas', $request['vagas']);
+        $pesquisa->setAttribute('bairro', $request['bairro']);
+        $pesquisa->setAttribute('cidade', $request['cidade']);
+        $pesquisa->setAttribute('caracteristica', $request['caracteristica']);
+        
+        return $pesquisa;
+    }
+    
+    protected function _whereImovel($imovel, $request)
+    {
+        if ($request->method() === 'POST') {
+            $imovel = $imovel->where('nome','LIKE', '%'.$imovel->nome.'%')
+                           ->where('endereco','LIKE', '%'.$imovel->endereco.'%')
+                           ->where('bairro','LIKE', '%'.$imovel->bairro.'%')
+                           ->where('cidade','LIKE', '%'.$imovel->cidade.'%')
+                           ->where('valor','>=', $imovel->valor != '' ? $imovel->valor : 0)
+                           ->where('quartos','>=', $imovel->quartos != '' ? $imovel->quartos : 0)
+                           ->where('vagas','>=', $imovel->vagas != '' ? $imovel->vagas : 0)
+                        ;
+        }
+        
+        return $imovel;
     }
 
 }
