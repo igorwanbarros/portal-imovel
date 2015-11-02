@@ -100,7 +100,7 @@
                     Form::text('cidade', 
                                 $pesquisa->cidade, 
                                 [
-                                    'placeholder' => 'Bairro', 
+                                    'placeholder' => 'Cidade', 
                                     'class' => 'form-control'
                                 ]
                     ) 
@@ -110,10 +110,10 @@
                     Form::label('caracteristica', 'Caracteristica do Imovel') 
                 !!}
                 {!! 
-                    Form::text('caracteristica', 
+                    Form::select('caracteristica', 
+                        $caracteristicaList,
                         $pesquisa->caracteristica, 
                         [
-                            'placeholder' => 'Nome da Caracteristica ', 
                             'class' => 'form-control'
                         ]
                     ) 
@@ -192,7 +192,7 @@
                             <div class="attachment-text">
                                 <h4 class="text-red">Valor</h4>
                                 <div class="comment-text">
-                                    R$ {{ $imovel->valor ? : 'Não informado' }}
+                                    R$ {{ number_format($imovel->valor,2,',','.') ? : 'Não informado' }}
                                 </div>
                             </div>
                             

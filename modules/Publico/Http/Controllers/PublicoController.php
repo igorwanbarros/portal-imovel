@@ -4,6 +4,7 @@ namespace Modules\Publico\Http\Controllers;
 
 use Pingpong\Modules\Routing\Controller;
 use Modules\Admin\Entities\Imovel;
+use Modules\Admin\Entities\Caracteristica;
 
 use Illuminate\Http\Request;
 
@@ -18,10 +19,10 @@ class PublicoController extends Controller
                            ->paginate(10)
                            ->setPath('imoveis');
         
-//        $auth = \Illuminate\Support\Facades\Auth::check();
-//        dd($auth);
+        $caracteristica = new Caracteristica();
+        $caracteristicaList = $caracteristica->lists('nome','id');
         
-        return view('publico::index', compact('object','pesquisa'));
+        return view('publico::index', compact('object','pesquisa', 'caracteristicaList'));
     }
     
     protected function _populateImovelPesquisa($request)
@@ -35,7 +36,6 @@ class PublicoController extends Controller
         $pesquisa->setAttribute('vagas', $request['vagas']);
         $pesquisa->setAttribute('bairro', $request['bairro']);
         $pesquisa->setAttribute('cidade', $request['cidade']);
-        $pesquisa->setAttribute('caracteristica', $request['caracteristica']);
         
         return $pesquisa;
     }
@@ -43,13 +43,17 @@ class PublicoController extends Controller
     protected function _whereImovel($imovel, $request)
     {
         if ($request->method() === 'POST') {
-            $imovel = $imovel->where('nome','LIKE', '%'.$imovel->nome.'%')
-                           ->where('endereco','LIKE', '%'.$imovel->endereco.'%')
-                           ->where('bairro','LIKE', '%'.$imovel->bairro.'%')
-                           ->where('cidade','LIKE', '%'.$imovel->cidade.'%')
-                           ->where('valor','>=', $imovel->valor != '' ? $imovel->valor : 0)
-                           ->where('quartos','>=', $imovel->quartos != '' ? $imovel->quartos : 0)
-                           ->where('vagas','>=', $imovel->vagas != '' ? $imovel->vagas : 0)
+            $imovel = $imovel
+                        ->leftJoin('imovel_caracteristica','imovel.id', '=', 'imovel_caracteristica.imovel_id')
+                        ->leftJoin('caracteristica', 'caracteristica.id', '=', 'imovel_caracteristica.caracteristica_id')
+                           ->where('imovel.nome','LIKE', '%'.$imovel->nome.'%')
+                           ->where('imovel.endereco','LIKE', '%'.$imovel->endereco.'%')
+                           ->where('imovel.bairro','LIKE', '%'.$imovel->bairro.'%')
+                           ->where('imovel.cidade','LIKE', '%'.$imovel->cidade.'%')
+                           ->where('imovel.valor','>=', $imovel->valor != '' ? $imovel->valor : 0)
+                           ->where('imovel.quartos','>=', $imovel->quartos != '' ? $imovel->quartos : 0)
+                           ->where('imovel.vagas','>=', $imovel->vagas != '' ? $imovel->vagas : 0)
+                           ->where('caracteristica.id','=',$request['caracteristica'])
                         ;
         }
         
