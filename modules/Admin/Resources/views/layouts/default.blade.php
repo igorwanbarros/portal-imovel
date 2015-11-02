@@ -87,6 +87,12 @@
                                 <span> Usuários</span>
                             </a>
                         </li>
+                        <li class="{{ Request::is('admin/web-service/*') || Request::is('admin/web-service') ? 'active' : '' }}">
+                            <a href='{{ URL::to('admin/web-service') }}'>
+                                <i class='fa fa-cloud-download fa-fw'></i>
+                                <span> Web Service</span>
+                            </a>
+                        </li>
 <!--                        <li class="divider"></li>
                         <li class="{{ Request::is('admin/configuracoes/*') || Request::is('admin/configuracoes') ? 'active' : '' }}">
                             <a href='#'>
@@ -150,20 +156,18 @@
                 window.document.location = $(this).data('url');
             });
 
-			$('.remover').on('click', function(event) {
-				event.preventDefault();
+            $('.remover').on('click', function(event) {
+                event.preventDefault();
 
-				var $a 		= $(this),
-					action = $a.attr('href');
+                var $a 		= $(this),
+                    action      = $a.attr('href');
 
-				$.get(action, function(response) {
-					if (response.status){
-						$a.parents('tr').remove();
-					}
-				});
-			});
-
-            CKEDITOR.replace('.ckeditor');
+                $.get(action, function(response) {
+                    if (response.status){
+                            $a.parents('tr').remove();
+                    }
+                });
+            });
         </script>
     </body>
 </html>
