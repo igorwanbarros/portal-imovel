@@ -17,7 +17,7 @@ class CreateImovelTable extends Migration
             $table->string('nome');
             $table->string('data_cadastro');
             $table->string('uf');
-            $table->decimal('valor');
+            $table->decimal('valor',15,2);
             $table->integer('quartos');
             $table->integer('vagas');
             $table->enum('negociacao',['venda','locacao','ambos']);
@@ -29,6 +29,7 @@ class CreateImovelTable extends Migration
             $table->string('responsavel');
             $table->string('observacao');
             $table->string('publicado');
+            $table->integer('webservice_id')->default(NULL);
             $table->timestamps();
             $table->softDeletes();
         });

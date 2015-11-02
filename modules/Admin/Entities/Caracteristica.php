@@ -1,6 +1,5 @@
 <?php namespace Modules\Admin\Entities;
 
-use Illuminate\Database\Eloquent\Model;
 use Modules\Admin\Entities\EntityAbstract;
 
 class Caracteristica extends EntityAbstract {
