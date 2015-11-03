@@ -12,10 +12,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Model::unguard();
-
-//         $this->call(Modules\Admin\Database\Seeders\HeaderComponentTableSeeder::class);
-
-        Model::reguard();
+        DB::table('users')->insert([
+            'name'      => 'artisan',
+            'email'     => 'artisan@host.com',
+            'password'  => bcrypt('artisan'),
+        ]);
     }
 }
