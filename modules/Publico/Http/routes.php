@@ -7,5 +7,6 @@ Route::group(
     ], function() {
 	Route::get('/{imoveis?}', 'PublicoController@index');
 	Route::post('/pesquisar', 'PublicoController@index');
+	Route::get('/imoveis/{id}/visualizar', 'PublicoController@show');
     }
 );

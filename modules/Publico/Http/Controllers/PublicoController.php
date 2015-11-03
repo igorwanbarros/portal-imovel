@@ -25,6 +25,14 @@ class PublicoController extends Controller
         return view('publico::index', compact('object','pesquisa', 'caracteristicaList'));
     }
     
+    public function show(Imovel $imov, $id)
+    {
+        $imovel = $imov->find($id);
+        $title  = $imovel->nome . ' - Visualizar Imovel';
+        
+        return view('publico::visualizar-imovel', compact('title','imovel'));
+    }
+    
     protected function _populateImovelPesquisa($request)
     {
         $pesquisa = new Imovel();
