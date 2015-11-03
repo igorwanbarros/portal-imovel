@@ -24,8 +24,8 @@ class WebServiceController extends Controller
                 ;
         
         $this->dispatch($job);
-        
-        return redirect()->guest('admin/web-service')->with('message', 'Sincronização realizada com sucesso!');
+        $text = (env('QUEUE_DRIVE','') == 'sync' ? 'realizada' : 'agendada');
+        return redirect()->guest('admin/web-service')->with('message', 'Sincronização ' . $text . ' com sucesso!');
     }
 
 }

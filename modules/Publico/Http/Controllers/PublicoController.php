@@ -45,7 +45,6 @@ class PublicoController extends Controller
         if ($request->method() === 'POST') {
             $imovel = $imovel
                         ->leftJoin('imovel_caracteristica','imovel.id', '=', 'imovel_caracteristica.imovel_id')
-                        ->leftJoin('caracteristica', 'caracteristica.id', '=', 'imovel_caracteristica.caracteristica_id')
                            ->where('imovel.nome','LIKE', '%'.$imovel->nome.'%')
                            ->where('imovel.endereco','LIKE', '%'.$imovel->endereco.'%')
                            ->where('imovel.bairro','LIKE', '%'.$imovel->bairro.'%')
@@ -53,7 +52,7 @@ class PublicoController extends Controller
                            ->where('imovel.valor','>=', $imovel->valor != '' ? $imovel->valor : 0)
                            ->where('imovel.quartos','>=', $imovel->quartos != '' ? $imovel->quartos : 0)
                            ->where('imovel.vagas','>=', $imovel->vagas != '' ? $imovel->vagas : 0)
-                           ->where('caracteristica.id','=',$request['caracteristica'])
+                           ->where('caracteristica_id','=',$request['caracteristica'])
                         ;
         }
         
